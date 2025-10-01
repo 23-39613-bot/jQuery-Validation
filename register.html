@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Register Page</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      margin:0; padding:0;
+      display:flex; align-items:center; justify-content:center;
+      height:100vh;
+      font-family: Arial, sans-serif;
+      background:linear-gradient(135deg,#89f7fe,#66a6ff);
+    }
+    .register-box {
+      background:#fff; padding:30px; border-radius:15px;
+      width:100%; max-width:400px; box-shadow:0 8px 20px rgba(0,0,0,0.2);
+      text-align:center;
+    }
+    .input-wrapper { position: relative; width:100%; margin-bottom:20px; }
+    .input-field {
+      width:100%; padding:12px; border:1px solid #ccc; border-radius:8px;
+      font-size:15px;
+    }
+    .toggle-password {
+      position:absolute; right:10px; top:50%; transform:translateY(-50%);
+      cursor:pointer; color:#666;
+    }
+    .btn {
+      width:100%; padding:12px; background:#0072ff; border:none;
+      border-radius:8px; color:#fff; font-size:16px; font-weight:bold;
+      cursor:pointer;
+    }
+    .btn:hover { background:#0056c1; }
+    .error-message {
+      color:red; font-size:13px; margin-top:4px; text-align:left;
+    }
+  </style>
+</head>
+<body>
+  <div class="register-box">
+    <h2>Create Account</h2>
+    <form id="registerForm" novalidate>
+      <input type="text" name="fullname" placeholder="Full Name" class="input-field">
+
+      <input type="email" name="email" placeholder="Email" class="input-field">
+
+      <div class="input-wrapper">
+        <input type="password" name="password" placeholder="Password" class="input-field">
+        <i class="fa-solid fa-eye-slash toggle-password"></i>
+      </div>
+
+      <div class="input-wrapper">
+        <input type="password" name="confirm_password" placeholder="Confirm Password" class="input-field">
+        <i class="fa-solid fa-eye-slash toggle-password"></i>
+      </div>
+
+      <button type="submit" class="btn">Register</button>
+    </form>
+    <p>Already have an account? <a href="Log In.html">Login</a></p>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+
+  <script>
+  $(function(){
+    // Toggle password show/hide
+    $(".toggle-password").on("click", function(){
+      const input = $(this).siblings("input");
+      const type = input.attr("type") === "password" ? "text" : "password";
+      input.attr("type", type);
+      $(this).toggleClass("fa-eye fa-eye-slash");
+    });
+
+    // Validation rules
+    $("#registerForm").validate({
+      errorClass: "error-message",
+      rules: {
+        fullname: { required:true },
+        email: { required:true, email:true },
+        password: { required:true, minlength:6 },
+        confirm_password: { required:true, equalTo:"[name='password']" }
+      },
+      messages: {
+        fullname: "Please enter your full name",
+        email: "Enter a valid email address",
+        password: {
+          required: "Please enter a password",
+          minlength: "Password must be at least 6 characters"
+        },
+        confirm_password: {
+          required: "Please confirm your password",
+          equalTo: "Passwords do not match"
+        }
+      },
+      submitHandler: function(form){
+        const user = {
+          fullname: $("[name='fullname']").val(),
+          email: $("[name='email']").val(),
+          password: $("[name='password']").val()
+        };
+        localStorage.setItem("registeredUser", JSON.stringify(user));
+        alert("🎉 Registration successful! You can now log in.");
+        window.location.href = "Log In.html";
+      }
+    });
+  });
+  </script>
+</body>
+</html>

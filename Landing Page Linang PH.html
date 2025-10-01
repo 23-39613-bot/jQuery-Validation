@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linang PH - Your Trusted Filipino Business Partner</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #be123c;
+            --secondary-color: #ec4899;
+            --accent-color: #fdf2f8;
+            --text-dark: #475569;
+            --text-light: #ffffff;
+            --muted-bg: #f1f5f9;
+        }
+
+        * {
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        body {
+            position: relative;
+            background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_20250911_140520.jpg-xrjoG81ersaKJLwMEnwnLGmNwyPUWY.jpeg');
+            background-size: 800px 600px;
+            background-repeat: no-repeat;
+            background-position: center right;
+            background-attachment: fixed;
+            background-color: #faf9f7;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-color) !important;
+        }
+
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95) !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-link {
+            color: var(--text-dark) !important;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        .logout-btn {
+            background: #be123c;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-left: 15px;
+            transition: background 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            background: #a50e32;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, rgba(190, 18, 60, 0.9) 0%, rgba(236, 72, 153, 0.9) 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            color: var(--text-light);
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .btn-primary-custom {
+            background-color: var(--secondary-color);
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary-custom:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(190, 18, 60, 0.3);
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .about-section {
+            background-color: rgba(253, 242, 248, 0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            backdrop-filter: blur(10px);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 1rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .footer {
+            background-color: rgba(71, 85, 105, 0.95);
+            color: var(--text-light);
+            padding: 50px 0 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        .footer-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .footer-link {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--secondary-color);
+        }
+
+        .social-icon {
+            font-size: 1.5rem;
+            margin: 0 10px;
+            color: var(--text-light);
+            transition: color 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: var(--secondary-color);
+        }
+
+        .welcome-message {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            background: rgba(190, 18, 60, 0.95);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+
+            body {
+                background-size: 400px 300px;
+                background-position: top right;
+            }
+
+            .welcome-message {
+                top: 70px;
+                right: 10px;
+                font-size: 0.9rem;
+                padding: 8px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+     Welcome Message 
+    <div id="welcomeMsg" class="welcome-message" style="display: none;"></div>
+
+     Navigation 
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <i class="fas fa-leaf me-2"></i>Linang PH
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <button id="logoutBtn" class="logout-btn">Logout</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+     Hero Section 
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h1 class="hero-title">Welcome to Linang PH</h1>
+                    <p class="hero-subtitle">Your trusted Filipino business partner, rooted in community values and dedicated to excellence. We bring the warmth of Filipino hospitality to every service we provide.</p>
+                    <a href="#about" class="btn btn-primary-custom">Discover Our Story</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     About Section 
+    <section id="about" class="about-section section-padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <h2 class="section-title text-start">About Linang PH</h2>
+                    <p class="lead mb-4">Linang PH is your trusted partner for comprehensive print and digital business solutions. We bridge traditional printing excellence with cutting-edge digital services, combining Filipino craftsmanship with modern technology.</p>
+                    <p class="mb-4">As a one-stop shop para sa lahat ng business needs, we serve everything from concept to completion. Whether you need business cards, brochures, banners, or complete digital marketing campaigns, we deliver affordable, high-quality solutions for small businesses and enterprises alike.</p>
+                    <p class="mb-4">Proudly serving Filipino businesses with world-class quality, we support local entrepreneurs in building their brand presence - mula sa traditional printing hanggang sa digital innovation.</p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-print text-primary me-3 fs-4"></i>
+                                <span><strong>Print Excellence</strong><br>Business cards, brochures, signage</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-laptop text-success me-3 fs-4"></i>
+                                <span><strong>Digital Solutions</strong><br>Web design, social media, branding</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-clock text-warning me-3 fs-4"></i>
+                                <span><strong>Fast Turnaround</strong><br>Quick delivery without compromise</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-handshake text-info me-3 fs-4"></i>
+                                <span><strong>Personalized Service</strong><br>Attention to every detail</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     Services Section 
+    <section id="services" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card">
+                        <i class="fas fa-print service-icon"></i>
+                        <h3 class="service-title">Print Services</h3>
+                        <p>Professional printing solutions including business cards, brochures, banners, signage, and promotional materials with the latest printing technology.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card">
+                        <i class="fas fa-laptop-code service-icon"></i>
+                        <h3 class="service-title">Digital Services</h3>
+                        <p>Complete digital solutions from website design and development to social media management, digital marketing, and graphic design services.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card">
+                        <i class="fas fa-palette service-icon"></i>
+                        <h3 class="service-title">Branding & Design</h3>
+                        <p>Comprehensive branding packages including logo design, corporate identity, marketing campaigns, and brand strategy development.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card">
+                        <i class="fas fa-bullhorn service-icon"></i>
+                        <h3 class="service-title">Marketing Solutions</h3>
+                        <p>Integrated marketing campaigns combining print and digital channels to maximize your business reach and customer engagement.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card">
+                        <i class="fas fa-mobile-alt service-icon"></i>
+                        <h3 class="service-title">Mobile & Web Apps</h3>
+                        <p>Custom mobile applications and responsive websites designed to enhance your business operations and customer experience.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card">
+                        <i class="fas fa-headset service-icon"></i>
+                        <h3 class="service-title">Business Support</h3>
+                        <p>Ongoing support and consultation to help your business grow, with maintenance services for all your print and digital assets.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     Testimonials Section 
+    <section id="testimonials" class="section-padding" style="background-color: var(--muted-bg);">
+        <div class="container">
+            <h2 class="section-title">What Our Clients Say</h2>
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Linang PH helped us understand the Filipino market better than we ever imagined. Their cultural insights were invaluable for our expansion."</p>
+                        <div class="testimonial-author">- Maria Santos, CEO of TechStart Manila</div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"The team at Linang PH truly embodies the spirit of bayanihan. They supported us every step of the way with genuine care and expertise."</p>
+                        <div class="testimonial-author">- Juan dela Cruz, Founder of Local Eats</div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Working with Linang PH feels like working with family. Their malasakit approach made all the difference in our business transformation."</p>
+                        <div class="testimonial-author">- Ana Reyes, Director of Community Bank</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     Contact Section 
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="text-center mb-5">
+                        <p class="lead">Ready to start your journey with Linang PH? We'd love to hear from you and discuss how we can help your business grow.</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 text-center mb-4">
+                            <i class="fas fa-map-marker-alt service-icon"></i>
+                            <h5>Visit Us</h5>
+                            <p>Makati City, Metro Manila<br>Philippines</p>
+                        </div>
+                        <div class="col-md-4 text-center mb-4">
+                            <i class="fas fa-phone service-icon"></i>
+                            <h5>Call Us</h5>
+                            <p>+63 2 8123 4567<br>+63 917 123 4567</p>
+                        </div>
+                        <div class="col-md-4 text-center mb-4">
+                            <i class="fas fa-envelope service-icon"></i>
+                            <h5>Email Us</h5>
+                            <p>hello@linangph.com<br>info@linangph.com</p>
+                        </div>
+                    </div>
+                    <div class="text-center mt-4">
+                        <a href="mailto:hello@linangph.com" class="btn btn-primary-custom">Start the Conversation</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     Footer 
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5 class="footer-title">Linang PH</h5>
+                    <p>Empowering Filipino businesses with clarity, integrity, and the spirit of bayanihan. Together, we build a stronger Philippines.</p>
+                    <div class="mt-3">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="footer-title">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#home" class="footer-link">Home</a></li>
+                        <li><a href="#about" class="footer-link">About</a></li>
+                        <li><a href="#services" class="footer-link">Services</a></li>
+                        <li><a href="#contact" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h6 class="footer-title">Services</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="footer-link">Print Services</a></li>
+                        <li><a href="#" class="footer-link">Digital Services</a></li>
+                        <li><a href="#" class="footer-link">Branding & Design</a></li>
+                        <li><a href="#" class="footer-link">Marketing Solutions</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h6 class="footer-title">Contact Info</h6>
+                    <p><i class="fas fa-map-marker-alt me-2"></i>Makati City, Metro Manila</p>
+                    <p><i class="fas fa-phone me-2"></i>+63 2 8123 4567</p>
+                    <p><i class="fas fa-envelope me-2"></i>hello@linangph.com</p>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 Linang PH. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="footer-link me-3">Privacy Policy</a>
+                    <a href="#" class="footer-link">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Login validation and protection
+        document.addEventListener("DOMContentLoaded", function () {
+            var user = localStorage.getItem("loggedInUser");
+            
+            // Check if user is logged in
+            if (!user) {
+                alert("You must log in first!");
+                window.location.href = "Log In.html";
+            } else {
+                // Display welcome message
+                var welcomeMsg = document.getElementById("welcomeMsg");
+                welcomeMsg.innerText = "Welcome, " + user + "!";
+                welcomeMsg.style.display = "block";
+            }
+
+            // Logout functionality
+            var logoutBtn = document.getElementById("logoutBtn");
+            if (logoutBtn) {
+                logoutBtn.addEventListener("click", function() {
+                    if (confirm("Are you sure you want to logout?")) {
+                        localStorage.removeItem("loggedInUser");
+                        window.location.href = "Log In.html";
+                    }
+                });
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Close mobile menu if open
+                    const navbarCollapse = document.querySelector('.navbar-collapse');
+                    if (navbarCollapse.classList.contains('show')) {
+                        navbarCollapse.classList.remove('show');
+                    }
+                }
+            });
+        });
+
+        // Navbar background change on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 4px 15px rgba(0,0,0,0.15)';
+            } else {
+                navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
